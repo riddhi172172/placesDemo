@@ -1,11 +1,11 @@
 import 'dart:io';
 
-import 'package:app/phone.dart';
+import 'package:app/screens/phone.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'DashboardPage.dart';
-import 'helper/color_res.dart';
-import 'injection/dependency_injection.dart';
+import 'dashboard.dart';
+import '../helper/color_res.dart';
+import '../injection/dependency_injection.dart';
 
 class SplashScreen extends StatefulWidget {
   @override

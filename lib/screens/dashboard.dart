@@ -4,12 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
 
-import 'helper/color_res.dart';
-import 'helper/constant.dart';
-import 'helper/string_res.dart';
-import 'helper/utils.dart';
-import 'injection/dependency_injection.dart';
-import 'model/place.dart';
+import '../helper/color_res.dart';
+import '../helper/constant.dart';
+import '../helper/string_res.dart';
+import '../helper/utils.dart';
+import '../injection/dependency_injection.dart';
+import '../model/place.dart';
 import 'phone.dart';
 
 class DashboardPage extends StatefulWidget {

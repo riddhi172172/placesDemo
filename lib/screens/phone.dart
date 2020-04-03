@@ -1,16 +1,16 @@
 
-import 'package:app/signup.dart';
+import 'package:app/screens/signup.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
-import 'dialogs/alert_dialog.dart';
-import 'helper/color_res.dart';
-import 'helper/constant.dart';
-import 'helper/string_res.dart';
-import 'helper/utils.dart';
-import 'model/user.dart';
+import '../dialogs/alert_dialog.dart';
+import '../helper/color_res.dart';
+import '../helper/constant.dart';
+import '../helper/string_res.dart';
+import '../helper/utils.dart';
+import '../model/user.dart';
 
 class PhoneScreen extends StatefulWidget {
   @override

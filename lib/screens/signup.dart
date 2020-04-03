@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:app/DashboardPage.dart';
+import 'package:app/screens/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:pin_code_text_field/pin_code_text_field.dart';
@@ -9,12 +9,12 @@ import 'package:pin_code_text_field/pin_code_text_field.dart';
 //import 'package:q_pluz_app/customview/pinview.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'helper/color_res.dart';
-import 'helper/constant.dart';
-import 'helper/string_res.dart';
-import 'helper/utils.dart';
-import 'injection/dependency_injection.dart';
-import 'model/user.dart';
+import '../helper/color_res.dart';
+import '../helper/constant.dart';
+import '../helper/string_res.dart';
+import '../helper/utils.dart';
+import '../injection/dependency_injection.dart';
+import '../model/user.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
