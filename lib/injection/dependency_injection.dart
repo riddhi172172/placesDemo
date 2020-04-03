@@ -5,6 +5,7 @@ import 'package:app/model/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:uuid/uuid.dart';
 
 class Injector {
   static final Injector _singleton = new Injector._internal();
@@ -13,12 +14,12 @@ class Injector {
   static FirebaseAuth firebaseAuth;
   static User user;
   static String userId;
-  static String selectedLanguage;
+  static String selectedCountry;
 
   static SharedPreferences prefs;
 
-  static double latitude;
-  static double longitude;
+  static Uuid uuid = Uuid();
+
 
   factory Injector() {
     return _singleton;

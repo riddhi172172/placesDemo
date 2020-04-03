@@ -46,6 +46,13 @@ class SignUpScreenState extends State<SignUpScreen> {
         .then((data) {
       Injector.updateUser(widget.user);
 
+        Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DashboardPage(),
+            ),
+            ModalRoute.withName("/signup"));
+
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => DashboardPage(),

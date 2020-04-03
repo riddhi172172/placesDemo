@@ -1,5 +1,6 @@
 import 'package:app/DashboardPage.dart';
 import 'package:app/phone.dart';
+import 'package:app/signup.dart';
 import 'package:app/splash.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
+      routes: <String, WidgetBuilder>{
+        '/signup': (BuildContext context) => SignUpScreen(),
+        '/dashboard': (BuildContext context) => DashboardPage(),
+      },
       home: Injector.user!=null?DashboardPage():PhoneScreen(),
     );
   }
