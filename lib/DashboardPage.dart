@@ -1,5 +1,3 @@
-import 'package:app/model/place.dart';
-import 'package:app/phone.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
@@ -11,6 +9,8 @@ import 'helper/constant.dart';
 import 'helper/string_res.dart';
 import 'helper/utils.dart';
 import 'injection/dependency_injection.dart';
+import 'model/place.dart';
+import 'phone.dart';
 
 class DashboardPage extends StatefulWidget {
   @override
@@ -34,31 +34,6 @@ class _DashboardPageState extends State<DashboardPage> {
           // action button
         ],
       ),
-//      body: StreamBuilder(
-//        stream: Injector.firestoreRef
-//            .collection(Const.placesCollection)
-//            .document(Injector.user.id)
-//            .collection(Const.placesCollection)
-//            .snapshots(),
-//        builder: (context, snap) {
-//          if (snap.hasData && !snap.hasError && snap.data.documents != null) {
-//           List<DocumentSnapshot> documents = snap.data.documents;
-//            List<Place> item = [];
-//
-//            documents.forEach(
-//                (index, document) => item.add(Place.fromJson(Map.from(document.data.data))));
-//
-//            return ListView.builder(
-//                shrinkWrap: true,
-//                primary: false,
-//                itemCount: item.length,
-//                itemBuilder: (context, index) {
-//                  return restaurantsList(item[index]);
-//                });
-//          } else
-//            return Text("No data");
-//        },
-//      ),
       body: StreamBuilder<QuerySnapshot>(
           stream: Injector.firestoreRef
               .collection(Const.placesCollection)
@@ -78,7 +53,6 @@ class _DashboardPageState extends State<DashboardPage> {
                 default:
                   return new ListView.builder(
                       shrinkWrap: true,
-                      physics: NeverScrollableScrollPhysics(),
                       itemCount: eventCount,
                       itemBuilder: (context, index) {
                         if (snapshot.data != null &&
