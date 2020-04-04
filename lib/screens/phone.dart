@@ -12,6 +12,11 @@ import '../helper/string_res.dart';
 import '../helper/utils.dart';
 import '../model/user.dart';
 
+// Here user will select the country and enter phone number,
+// OTP will be sent out to this entered number and
+// user will navigate to SignUP page if the number is valid
+
+
 class PhoneScreen extends StatefulWidget {
   @override
   PhoneScreenState createState() => new PhoneScreenState();

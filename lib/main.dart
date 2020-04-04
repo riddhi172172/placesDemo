@@ -30,6 +30,7 @@ class MyApp extends StatelessWidget {
         '/signup': (BuildContext context) => SignUpScreen(),
         '/dashboard': (BuildContext context) => DashboardPage(),
       },
+      // check if user is logged in the it will navigate to DashboardPage otherwise Phone authentication page
       home: Injector.user!=null?DashboardPage():PhoneScreen(),
     );
   }

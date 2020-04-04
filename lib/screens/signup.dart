@@ -18,6 +18,11 @@ import '../model/user.dart';
 
 final FirebaseAuth _auth = FirebaseAuth.instance;
 
+// Here user will enter the OTP received on entered phone number
+// if entered otp is Valid then user will navigates to Dashboard page
+// otherwise error will be thrown
+
+
 class SignUpScreen extends StatefulWidget {
   SignUpScreen({Key key, this.user, this.verificationId}) : super(key: key);
 
