@@ -1,9 +1,9 @@
-
 import 'package:app/screens/signup.dart';
 import 'package:country_code_picker/country_code_picker.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:google_maps_webservice/directions.dart';
 
 import '../dialogs/alert_dialog.dart';
 import '../helper/color_res.dart';
@@ -29,36 +29,13 @@ class PhoneScreenState extends State<PhoneScreen> {
   @override
   void initState() {
     TextEditingController _countryCodeController = TextEditingController();
-
+    print("==========");
+    print(Component.country);
     super.initState();
 
-//    getExistingUsers();
   }
 
-//  void getExistingUsers() {
-//    Injector
-//        .databaseRef
-//        .child(Const.childUsers)
-//        .onValue
-//        .listen((category) {})
-//        .onData((Event event) {
-//      setState(() {
-//        if (event.snapshot != null) {
-//          print("category = " + event.snapshot.value.toString());
-//
-//          Map<dynamic, dynamic> mapOfMaps = Map.from(event.snapshot.value);
-//
-//          arrUsers.clear();
-//
-//          mapOfMaps.values.forEach((value) async {
-//            User user = User.fromJson(Map.from(value));
-//
-//            arrUsers.add(user);
-//          });
-//        }
-//      });
-//    });
-//  }
+
 
   Future<void> _sendCodeToPhoneNumber(
       BuildContext context, PhoneScreen widget, String phone) async {
@@ -274,7 +251,10 @@ class PhoneScreenState extends State<PhoneScreen> {
 
   void _onCountryChange(CountryCode countryCode) {
     //Todo : manipulate the selected country code here
-    selectedCountryCode = countryCode.toString();
+
+    print("country" + countryCode.name);
+
+    selectedCountryCode = countryCode.dialCode.toString();
     print("New Country selected: " + countryCode.toString());
   }
 }

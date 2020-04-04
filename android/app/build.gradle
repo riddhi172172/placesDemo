@@ -49,10 +49,10 @@ android {
 
     signingConfigs {
         debug {
-            storeFile file('../places.jks')
-            storePassword '123456'
-            keyAlias = 'places'
-            keyPassword '123456'
+//            storeFile file('../places.jks')
+//            storePassword '123456'
+//            keyAlias = 'places'
+//            keyPassword '123456'
         }
 
         release {

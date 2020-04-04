@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places/flutter_google_places.dart';
+import 'package:google_maps_webservice/distance.dart';
+import 'package:google_maps_webservice/places.dart';
 
 import '../helper/color_res.dart';
 import '../helper/constant.dart';
@@ -110,8 +112,8 @@ class _DashboardPageState extends State<DashboardPage> {
   }
 
   showGooglePlaces(String placeId) async {
-    var p = await PlacesAutocomplete.show(
-        context: context, mode: Mode.overlay, apiKey: Const.API_KEY);
+    Prediction p = await PlacesAutocomplete.show(
+        context: context, mode: Mode.overlay, apiKey: Const.API_KEY,components: [Component(Component.country, "fr")]);
 
     if (placeId == null) {
       Place place = Place();
