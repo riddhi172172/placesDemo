@@ -14,6 +14,9 @@ import '../injection/dependency_injection.dart';
 import '../model/place.dart';
 import 'phone.dart';
 
+// Here user can add the places from the google and can see, update and delete the places.
+// user can Logout here if he wants
+
 class DashboardPage extends StatefulWidget {
   @override
   _DashboardPageState createState() => _DashboardPageState();
@@ -62,7 +65,7 @@ class _DashboardPageState extends State<DashboardPage> {
                           Place place = Place.fromJson(
                               snapshot.data.documents[index].data);
 
-                          return restaurantsList(place);
+                          return showAddressList(place);
                         } else {
                           return Container();
                         }
@@ -81,7 +84,7 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
-  restaurantsList(Place place) {
+  showAddressList(Place place) {
     return InkResponse(
       child: Container(
         decoration: BoxDecoration(
@@ -111,10 +114,15 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
+// user can select google places by this function
   showGooglePlaces(String placeId) async {
     Prediction p = await PlacesAutocomplete.show(
-        context: context, mode: Mode.overlay, apiKey: Const.API_KEY,components: [Component(Component.country, "fr")]);
+        context: context,
+        mode: Mode.overlay,
+        apiKey: Const.API_KEY,
+        components: [Component(Component.country, "fr")]);
 
+    // if it is new place then add the place in firestore otherwise update it only
     if (placeId == null) {
       Place place = Place();
       place.id = Injector.uuid.v4();
@@ -151,6 +159,8 @@ class _DashboardPageState extends State<DashboardPage> {
               child: new Text("Yes"),
               onPressed: () async {
                 Navigator.of(context).pop();
+
+                // delete the place of this user from the firestore
                 await Injector.firestoreRef
                     .collection(Const.placesCollection)
                     .document(Injector.user.id)
@@ -171,6 +181,7 @@ class _DashboardPageState extends State<DashboardPage> {
     );
   }
 
+// perform the logout and navigate to phoneAuth page
   void _logout() async {
     await FirebaseAuth.instance.signOut();
     Injector.prefs.clear();
