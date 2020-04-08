@@ -18,8 +18,21 @@
 	<string>$(FLUTTER_BUILD_NAME)</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.826035679089-u2c823c3ip77n40tn295bpmv3ef5ggan</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
-	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<string>1.5.0</string>
+	<key>FirebaseAppDelegateProxyEnabled</key>
+	<false/>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UILaunchStoryboardName</key>
@@ -41,23 +54,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-
-	<key>CFBundleURLTypes</key>
-    	<array>
-    		<dict>
-    			<key>CFBundleTypeRole</key>
-    			<string>Editor</string>
-    			<key>CFBundleURLSchemes</key>
-    			<array>
-    				<string>com.googleusercontent.apps.826035679089-9ld5jfdiidvhu8b917vkk00pk5gigncb</string>
-    			</array>
-    		</dict>
-    	</array>
-    	<key>CFBundleVersion</key>
-    	<string>1.5.0</string>
-    	<key>FirebaseAppDelegateProxyEnabled</key>
-    	<false/>
-
-
 </dict>
 </plist>
