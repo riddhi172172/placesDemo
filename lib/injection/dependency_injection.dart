@@ -53,7 +53,7 @@ class Injector {
   }
 
 
-  //update the user in prefs and in singleton instance
+  //update the user in prefs and in singleton instance whenever needed
   static updateUser(User _user) async {
     await prefs.setString(PrefKeys.user, jsonEncode(_user.toJson()));
     user = _user;

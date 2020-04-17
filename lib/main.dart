@@ -1,7 +1,6 @@
 import 'package:app/screens/dashboard.dart';
 import 'package:app/screens/phone.dart';
 import 'package:app/screens/signup.dart';
-import 'package:app/screens/splash.dart';
 import 'package:flutter/material.dart';
 
 import 'injection/dependency_injection.dart';

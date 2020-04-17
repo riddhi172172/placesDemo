@@ -1,16 +1,13 @@
-
 import 'package:connectivity/connectivity.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 class Utils {
-
-
   static double getDeviceWidth(BuildContext context) {
     return MediaQuery.of(context).size.width;
   }
 
-  static double keyboardClose(BuildContext context) {
+  static  keyboardClose(BuildContext context) {
     FocusScope.of(context).unfocus();
   }
 
@@ -23,11 +20,6 @@ class Utils {
   }
 
   static showToast(String message) {
-//    _scaffoldKey.currentState.showSnackBar(SnackBar(
-//      content: Text(message),
-//      duration: const Duration(milliseconds: 2000),
-//    ));
-
     Fluttertoast.showToast(
         msg: message,
         toastLength: Toast.LENGTH_SHORT,
@@ -53,7 +45,7 @@ class Utils {
 
   static String getText(BuildContext context, String text) {
 //    return AppLocalizations.of(context).text(text) ?? text;
-  return text;
+    return text;
   }
 
   static Future<bool> isInternetConnected() async {
@@ -68,7 +60,6 @@ class Utils {
     }
     return isConnected;
   }
-
 
   static showSnackBar(GlobalKey<ScaffoldState> _scaffoldKey, String message) {
     _scaffoldKey.currentState.showSnackBar(SnackBar(content: Text(message)));

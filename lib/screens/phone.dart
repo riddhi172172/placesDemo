@@ -7,7 +7,6 @@ import 'package:google_maps_webservice/directions.dart';
 
 import '../dialogs/alert_dialog.dart';
 import '../helper/color_res.dart';
-import '../helper/constant.dart';
 import '../helper/string_res.dart';
 import '../helper/utils.dart';
 import '../model/user.dart';
@@ -16,31 +15,18 @@ import '../model/user.dart';
 // OTP will be sent out to this entered number and
 // user will navigate to SignUP page if the number is valid
 
-
 class PhoneScreen extends StatefulWidget {
   @override
   PhoneScreenState createState() => new PhoneScreenState();
 }
 
 class PhoneScreenState extends State<PhoneScreen> {
-  TextEditingController _countryCodeController = TextEditingController();
   TextEditingController _phoneNumberController = TextEditingController();
   String verificationId;
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   bool isLoading = false;
 
   List<User> arrUsers = List();
-
-  @override
-  void initState() {
-    TextEditingController _countryCodeController = TextEditingController();
-    print("==========");
-    print(Component.country);
-    super.initState();
-
-  }
-
-
 
   Future<void> _sendCodeToPhoneNumber(
       BuildContext context, PhoneScreen widget, String phone) async {
@@ -67,21 +53,12 @@ class PhoneScreenState extends State<PhoneScreen> {
                 "Phone number verification failed. Code: ${authException.code}. Message: ${authException.message}",
           ),
         );
-
-//        Utils.showSnackBar(_scaffoldKey,
-//            "Phone number verification failed. Code: ${authException.code}. Message: ${authException.message}");
-        print(
-            'Phone number verification failed. Code: ${authException.code}. Message: ${authException.message}');
       });
     };
 
     final PhoneCodeSent codeSent =
         (String verificationId, [int forceResendingToken]) async {
       this.verificationId = verificationId;
-      print("code sent to " +
-          phone +
-          "__________" +
-          forceResendingToken.toString());
 
       isLoading = false;
 
@@ -167,14 +144,11 @@ class PhoneScreenState extends State<PhoneScreen> {
                                   Utils.getText(context, StringRes.phoneNumber),
                               hintStyle: TextStyle(
                                   color: ColorRes.hintColor,
-                                  fontFamily: Const.fontSansPro,
                                   fontWeight: FontWeight.w600)),
                           controller: _phoneNumberController,
                           keyboardType: TextInputType.number,
                           textInputAction: TextInputAction.done,
-                          style: TextStyle(
-                              fontFamily: Const.fontSansPro,
-                              fontWeight: FontWeight.w600),
+                          style: TextStyle(fontWeight: FontWeight.w600),
                         ),
                       ),
                     ],
@@ -256,10 +230,7 @@ class PhoneScreenState extends State<PhoneScreen> {
 
   void _onCountryChange(CountryCode countryCode) {
     //Todo : manipulate the selected country code here
-
     print("country" + countryCode.name);
-
     selectedCountryCode = countryCode.dialCode.toString();
-    print("New Country selected: " + countryCode.toString());
   }
 }
